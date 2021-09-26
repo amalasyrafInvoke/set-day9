@@ -48,13 +48,13 @@ const songList = [
 function heartOnClick() {
   if (heartOn === false) {
     document.querySelector('#heart-btn').classList.replace('far', 'fa');
-    document.querySelector('#heart-btn').style.color = '#eb5757'
+    document.querySelector('#heart-btn').style.color = '#eb5757';
     heartOn = true;
     return;
   }
   if (heartOn === true) {
     document.querySelector('#heart-btn').classList.replace('fa', 'far');
-    document.querySelector('#heart-btn').style.color = 'white'
+    document.querySelector('#heart-btn').style.color = 'white';
     heartOn = false;
     return;
   }
@@ -114,6 +114,13 @@ function changeSong(index) {
   audio.src = songList[index].src;
   document.querySelector('#playing-title').innerHTML = songList[index].title;
   document.querySelector('#playing-artist').innerHTML = songList[index].artist;
-  document.querySelector('#bg-img').style.backgroundImage = `url(${songList[index].albumImg})`;
+  document.querySelector(
+    '#bg-img'
+  ).style.backgroundImage = `url(${songList[index].albumImg})`;
   stopAudio();
+  audio.play();
+  isPlaying = true;
+  document
+    .querySelector('#play-btn')
+    .classList.replace('fa-play-circle', 'fa-pause-circle');
 }
