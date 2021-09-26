@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SET Challenge - Audio Player</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+      integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <!-- FUTURE THINGS TO DO:
+    1. add song duration bar
+    2.disable container behind more songs button
+    3. add more song list with more songs btn
+    4. forward and backward track
+    5. set up fav-song function
+    -->
+    <div id="app">
+      <header>
+        <div id="status-bar">
+          <p>9:41AM</p>
+          <ul>
+            <li><i class="fa fa-signal"></i></li>
+            <li><i class="fa fa-wifi"></i></li>
+            <li><i class="fa fa-battery-full"></i></li>
+          </ul>
+        </div>
+        <div id="song-info">
+          <audio id="audio" src="audio/505.mp3"></audio>
+          <div>
+            <h4 id="playing-title">505</h4>
+            <h6 id="playing-artist">Arctic Monkeys</h6>
+          </div>
+          <div>
+            <i id="backward-btn" class="far fa-backward"></i>
+            <i
+              id="play-btn"
+              class="fa fa-play-circle"
+              onclick="switchPlay()"
+            ></i>
+            <i
+              id="stop-btn"
+              class="far fa-stop-circle"
+              onclick="stopAudio()"
+            ></i>
+            <i id="forward-btn" class="far fa-forward"></i>
+            <i id="heart-btn" class="far fa-heart" onclick="heartOnClick()"></i>
+          </div>
+        </div>
+        <div id="bg-img"></div>
+        <div id="arrow-left">
+          <i class="fa fa-arrow-left"> </i>
+        </div>
+      </header>
+      <div id="song-container">
+        <div class="song-list" onclick="changeSong(0)">
+          <h5>01</h5>
+          <img
+            src="images/monkeys.jpg"
+            alt="Song Image"
+            width="75px"
+            height="75px"
+          />
+          <div class="song-text">
+            <h4>505</h4>
+            <h5>
+              Arctic Monkeys | <br />
+              Favourite Worst Nightmare
+            </h5>
+          </div>
+          <i id="fav-song1" class="fa fa-plus" onclick="favSongOnClick()"></i>
+        </div>
+        <div class="song-list" onclick="changeSong(1)">
+          <h5>02</h5>
+          <img
+            src="images/muse.jpg"
+            alt="Song Image"
+            width="75px"
+            height="75px"
+          />
+          <div class="song-text">
+            <h4>Supermassive Black Hole</h4>
+            <h5>
+              Muse | <br />
+              Black Holes and Revelations
+            </h5>
+          </div>
+          <i id="fav-song2" class="fa fa-plus" onclick="favSongOnClick()"></i>
+        </div>
+        <div class="song-list" onclick="changeSong(2)">
+          <h5>03</h5>
+          <img
+            src="images/bp.jpg"
+            alt="Song Image"
+            width="75px"
+            height="75px"
+          />
+          <div class="song-text">
+            <h4>Whistle</h4>
+            <h5>Blackpink | <br />Square One</h5>
+          </div>
+          <i id="fav-song3" class="fa fa-plus" onclick="favSongOnClick()"></i>
+        </div>
+        <div class="song-list" onclick="changeSong(3)">
+          <h5>04</h5>
+          <img
+            src="images/5sos.png"
+            alt="Song Image"
+            width="75px"
+            height="75px"
+          />
+          <div class="song-text">
+            <h4>Amnesia</h4>
+            <h5>
+              5SOS | <br />
+              5 Seconds of Summer
+            </h5>
+          </div>
+          <i id="fav-song4" class="fa fa-plus" onclick="favSongOnClick()"></i>
+        </div>
+        <div class="song-list" onclick="changeSong(4)" id="last-song-list">
+          <h5>05</h5>
+          <img
+            src="images/song-img.png"
+            alt="Song Image"
+            width="75px"
+            height="75px"
+          />
+          <div class="song-text">
+            <h4>30s Audio</h4>
+            <h5>
+              Artist | <br />
+              Album 2021
+            </h5>
+          </div>
+          <i id="fav-song5" class="fa fa-plus" onclick="favSongOnClick()"></i>
+        </div>
+        <div id="more-btn">More Songs</div>
+      </div>
+
+      <div id="disclaimer">
+        <div id="disclaimer-text">
+          <p>
+            Winter is here and it is cold outside - stay warm with these songs.
+          </p>
+          <br />
+          <p>Created by Gilbert U. | 147 songs 7 hr 4 min</p>
+        </div>
+      </div>
+    </div>
+    <script src="js/script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Audio</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #container {
+        width: 900px;
+        height: 600px;
+        margin: 0 auto;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .btn {
+        width: 50px;
+        height: 50px;
+        background-color: green;
+        margin: 1rem;
+        border-radius: 25px;
+        line-height: 50px;
+        text-align: center;
+      }
+      #seekBar {
+        width: 500px;
+        height: 25px;
+        border: 1px solid black;
+        overflow: hidden;
+      }
+      #timeBar {
+        height: inherit;
+        background-color: lightblue;
+        transition: 0.2s all ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+
+      <h1 id="titleText">Title</h1>
+      <h4 id="artistText">Artist</h4>
+      <audio
+        id="song"
+        src="audio/30s.mp3"
+        controls
+        autoplay
+        muted
+        loop
+      ></audio>
+
+      <div class="btn-container">
+        <div class="btn" onclick="playSong()">Play</div>
+        <div class="btn" onclick="pauseSong()">Pause</div>
+      </div>
+
+      <div id="seekBar">
+        <div id="timeBar"></div>
+      </div>
+      <div>
+        <p id="duration">0:00</p>
+      </div>
+      <div class="btn-container">
+        <div class="btn" onclick="getSong('songList1')">Song 1</div>
+        <div class="btn" onclick="getSong('songList2')">Song 2</div>
+        <div class="btn" onclick="getSong()">Empty</div>
+      </div>
+
+    </div>
+    <script src="js/demo-audio-script.js"></script>
+  </body>
+</html>

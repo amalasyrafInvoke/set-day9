@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Timer</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      #container {
+        width: 900px;
+        height: 600px;
+        margin: 0 auto;
+        position: relative;
+        border: 1px solid black;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      #stop-btn {
+        border: 1px solid black;
+        margin: 2px;
+        padding: 2px 5px;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      #box1 {
+        width: 100px;
+        height: 100px;
+        background-color: blue;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      #box2 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      #box3 {
+        width: 100px;
+        height: 100px;
+        background-color: green;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <h1 id="score">0</h1>
+      <div id="stop-btn">Emergency STOP!</div>
+      <div id="box1"></div>
+      <div id="box2"></div>
+      <div id="box3"></div>
+    </div>
+    <script>
+      // setInterval(moveBox, 1000);
+      // function moveBox() {
+      //   console.log("hi!");
+      // }
+
+      // setInterval(function() {
+      //   console.log("Running without function name")
+      // }, 1000);
+
+      // var timer = setInterval(() => {
+      //   console.log("using timer var");
+      // }, 1000);
+
+      // clearInterval(timer);
+
+      var score = 0;
+      var box1X = 0;
+      var box1Y = 0;
+      var box2X = 0;
+      var box2Y = 0;
+      var box3X = 0;
+      var box3Y = 0;
+
+      document.querySelector('#stop-btn').addEventListener("click", () => {
+        countdown();
+      })
+
+      setTimeout(countdown, 5000);
+      function countdown() {
+        console.log('STOPPING COUNT!');
+        clearInterval(boxInterval);
+      }
+      setTimeout(countdown2, 6000);
+      function countdown2() {
+        console.log('RUN!');
+        setInterval(counting, 10);
+      }
+
+      var boxInterval = setInterval(counting, 10);
+      function counting() {
+        var scoreText = document.querySelector('#score');
+
+        var x = 3;
+        var y = 3;
+        score++;
+        scoreText.innerHTML = score;
+
+        box1X += 5;
+        box2Y += 5;
+        box3X += x;
+        box3Y += y;
+
+        if (box1X >= 900) {
+          box1X = -100;
+        }
+        if (box2Y >= 600) {
+          box2Y = -100;
+        }
+        if (box3X >= 900 || box3Y >= 600) {
+          box3Y = -100;
+          box3X = -100;
+          x += 10;
+        }
+        document.querySelector('#box1').style.left = `${box1X}px`;
+        document.querySelector('#box2').style.top = `${box2Y}px`;
+        document.querySelector('#box3').style.top = `${box3Y}px`;
+        document.querySelector('#box3').style.left = `${box3X}px`;
+      }
+    </script>
+  </body>
+</html>

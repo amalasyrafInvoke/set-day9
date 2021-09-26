@@ -1,0 +1,179 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+
+#app {
+  width: 360px;
+  height: auto;
+  background-color: #111111;
+  font-family: 'Open Sans', sans-serif;
+  color: white;
+  margin: 0 auto;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 360px;
+  height: 230px;
+  position: relative;
+}
+
+#status-bar {
+  padding: 0.5rem 1rem;
+}
+
+#status-bar,
+#song-info {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 360px;
+}
+
+#status-bar > * {
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+#status-bar ul li {
+  padding: 0 2px;
+}
+
+#song-info {
+  z-index: 5;
+}
+
+#song-info > * {
+  padding: 0.5rem 1rem;
+}
+
+#song-info div i {
+  margin: 0 5px;
+  transition: 0.5s all;
+}
+
+#song-info div i:hover {
+  font-size: 1.2rem;
+}
+
+.fa-play-circle {
+  color: #f2c94c;
+}
+
+#bg-img {
+  background-image: url(../images/monkeys.jpg);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 360px;
+  height: 230px;
+  opacity: 0.3;
+  border: 1px solid black;
+}
+
+#arrow-left {
+  position: absolute;
+  top: 40px;
+  left: 1rem;
+  transition: 0.75s all;
+}
+
+#arrow-left:hover {
+  font-size: 1.2rem;
+}
+
+#song-container,
+#disclaimer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1rem;
+  position: relative;
+}
+
+.song-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222222;
+  width: 100%;
+  border-radius: 10px;
+  padding: 0.5rem;
+  margin: 1px 0;
+}
+
+.song-list > * {
+  padding: 2px 2px;
+}
+
+.song-text {
+  width: 120px;
+  max-width: 120px;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+#playing-title {
+  width: 130px;
+  max-width: 130px;
+}
+
+#last-song-list {
+  opacity: 0.3;
+}
+
+#more-btn {
+  text-align: center;
+  background-color: #f2c94c;
+  position: absolute;
+  top: 450px;
+  left: 40px;
+  border-radius: 8px;
+  width: 280px;
+  height: 48px;
+  padding: 12px 8px;
+  transition: all 0.75s;
+}
+
+#more-btn:hover {
+  opacity: 0.9;
+  left: 20px;
+  width: 320px;
+}
+
+#disclaimer-text {
+  background-color: #333333;
+  width: 100%;
+  border-radius: 10px;
+  padding: 1.2rem;
+  font-size: 0.7rem;
+}
+
+.fa-spinner {
+  animation-name: spinner;
+  animation-duration: 0.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
